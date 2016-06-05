@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-fixed-medium-r-normal-*-13-*-*-*-*-*-*-*";
+static const char font[]            = "-*-fixed-medium-r-normal-*-14-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#2e3436";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#999999";
@@ -49,7 +49,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]	= { "urxvt", NULL };
+static const char *termcmd[]	= { "xterm", NULL };
 static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
 
 static Key keys[] = {
