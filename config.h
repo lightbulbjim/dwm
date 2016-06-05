@@ -50,22 +50,12 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]	= { "urxvt", NULL };
-static const char *displaycmd[]	= { "xrandr", "--output", "LVDS", "--auto", "--output", "VGA", "--off", NULL };
-static const char *voldncmd[]	= { "amixer", "-q", "set", "Master", "1-", NULL };
-static const char *volupcmd[]	= { "amixer", "-q", "set", "Master", "1+", NULL };
-static const char *mutecmd[]	= { "amixer", "-q", "set", "Master", "toggle", NULL };
-static const char *suspendcmd[]	= { "sudo", "/etc/acpi/suspend.sh", NULL };
 static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ NULL,                         XK_F14,    spawn,          {.v = voldncmd } },
-	{ NULL,                         XK_F15,    spawn,          {.v = volupcmd } },
-	{ NULL,                         XK_F16,    spawn,          {.v = mutecmd } },
-	{ NULL,                         XK_F17,    spawn,          {.v = displaycmd } },
-	{ NULL,                         XK_F18,    spawn,          {.v = suspendcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wicdcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
