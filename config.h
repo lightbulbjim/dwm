@@ -52,10 +52,10 @@ static const char *dmenucmd[]	= { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 static const char *termcmd[]	= { "xterm", NULL };
 static const char *lockcmd[]	= { "xlock", NULL };
 static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
-static const char *mutecmd[]    = { "amixer", "-q", "sset", "Master", "toggle", NULL };
-static const char *voldncmd[]   = { "amixer", "-q", "sset", "-M", "Master", "5%-", "unmute", NULL };
-static const char *volupcmd[]   = { "amixer", "-q", "sset", "-M", "Master", "5%+", "unmute", NULL };
-static const char *micmutecmd[] = { "amixer", "-q", "sset", "Capture", "toggle", NULL };
+static const char *mutecmd[]    = { "amixer", "-q", "-c0", "sset", "Master", "toggle", NULL };
+static const char *voldncmd[]   = { "amixer", "-q", "-c0", "sset", "-M", "Master", "5%-", "unmute", NULL };
+static const char *volupcmd[]   = { "amixer", "-q", "-c0", "sset", "-M", "Master", "5%+", "unmute", NULL };
+static const char *micmutecmd[] = { "amixer", "-q", "-c0", "sset", "Capture", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                   key         function        argument */
