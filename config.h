@@ -53,8 +53,8 @@ static const char *termcmd[]	= { "xterm", NULL };
 static const char *lockcmd[]	= { "xlock", NULL };
 static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
 static const char *mutecmd[]    = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
-static const char *voldncmd[]   = { "sh", "-c", "'pactl set-sink-volume @DEFAULT_SINK@ -5%; pactl set-sink-mute @DEFAULT_SINK@ 0'", NULL };
-static const char *volupcmd[]   = { "sh", "-c", "'pactl set-sink-volume @DEFAULT_SINK@ +5%; pactl set-sink-mute @DEFAULT_SINK@ 0'", NULL };
+static const char *voldncmd[]   = { "sh", "-c", "'pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%;", "pactl", "set-sink-mute", "@DEFAULT_SINK@", "0'", NULL };
+static const char *volupcmd[]   = { "sh", "-c", "'pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%;", "pactl", "set-sink-mute", "@DEFAULT_SINK@", "0'", NULL };
 static const char *micmutecmd[] = { "pactl", "set-source-mute", "@DEFAULT_SOURCE@", "toggle", NULL };
 
 static Key keys[] = {
