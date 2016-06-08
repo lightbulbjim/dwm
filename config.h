@@ -49,7 +49,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]	= { "xterm", NULL };
+static const char *termcmd[]	= { "urxvt", NULL };
 static const char *lockcmd[]	= { "xlock", NULL };
 static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
 static const char *mutecmd[]    = { "/etc/acpi/volume.sh", "mute", NULL };
