@@ -48,20 +48,17 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[]    = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]     = { "urxvt", NULL };
-static const char *lockcmd[]     = { "xlock", NULL };
-static const char *wicdcmd[]     = { "wicd-client", "-n", NULL };
-static const char *mutecmd[]     = { "/etc/acpi/volume.sh", "mute", NULL };
-static const char *voldncmd[]    = { "/etc/acpi/volume.sh", "down", NULL };
-static const char *volupcmd[]    = { "/etc/acpi/volume.sh", "up", NULL };
-static const char *micmutecmd[]  = { "/etc/acpi/volume.sh", "micmute", NULL };
-static const char *brightdncmd[] = { "xbacklight", "-time", "100", "-dec", "2.5", NULL };
-static const char *brightupcmd[] = { "xbacklight", "-time", "100", "-inc", "2.5", NULL };
-static const char *presentcmd[]  = { "/etc/acpi/presentation.sh", "toggle", NULL };
-static const char *prevcmd[]     = { "cmus-remote", "-r", NULL };
-static const char *playcmd[]     = { "cmus-remote", "-u", NULL };
-static const char *nextcmd[]     = { "cmus-remote", "-n", NULL };
+static const char *dmenucmd[]	= { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]	= { "urxvt", NULL };
+static const char *lockcmd[]	= { "xlock", NULL };
+static const char *wicdcmd[]	= { "wicd-client", "-n", NULL };
+static const char *mutecmd[]    = { "/etc/acpi/volume.sh", "mute", NULL };
+static const char *voldncmd[]   = { "/etc/acpi/volume.sh", "down", NULL };
+static const char *volupcmd[]   = { "/etc/acpi/volume.sh", "up", NULL };
+static const char *micmutecmd[] = { "/etc/acpi/volume.sh", "micmute", NULL };
+static const char *prevcmd[]    = { "cmus-remote", "-r", NULL };
+static const char *playcmd[]    = { "cmus-remote", "-u", NULL };
+static const char *nextcmd[]    = { "cmus-remote", "-n", NULL };
 
 static Key keys[] = {
 	/* modifier                   key         function        argument */
@@ -69,9 +66,6 @@ static Key keys[] = {
 	{ 0,                          0x1008ff11, spawn,          {.v = voldncmd } },
 	{ 0,                          0x1008ff13, spawn,          {.v = volupcmd } },
 	{ 0,                          0x1008ffb2, spawn,          {.v = micmutecmd } },
-	{ 0,                          0x1008ff03, spawn,          {.v = brightdncmd } },
-	{ 0,                          0x1008ff02, spawn,          {.v = brightupcmd } },
-	{ 0,                          0x1008ff59, spawn,          {.v = presentcmd } },
 	{ 0,                          XK_F13,     spawn,          {.v = prevcmd } },
 	{ 0,                          XK_F14,     spawn,          {.v = playcmd } },
 	{ 0,                          XK_F15,     spawn,          {.v = nextcmd } },
