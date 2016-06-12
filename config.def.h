@@ -2,14 +2,15 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"-*-fixed-medium-r-normal-*-13-*-*-*-*-*-*-*"
+	"monospace:size=10"
 };
-static const char normbordercolor[] = "#2e3436";
+static const char dmenufont[]       = "monospace:size=10";
+static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#999999";
-static const char selbordercolor[]  = "#f5a400";
-static const char selbgcolor[]      = "#2e3436";
-static const char selfgcolor[]      = "#f5a400";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#005577";
+static const char selbgcolor[]      = "#005577";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -23,17 +24,15 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class           instance    title       tags mask     isfloating   monitor */
-    { "MPlayer",       NULL,       NULL,       0,            1,           -1 },
-    { "xine",          NULL,       NULL,       0,            1,           -1 },
-    { "Skype",         NULL,       NULL,       0,            1,           -1 },
-    { "TeamSpeak.bin", NULL,       NULL,       0,            1,           -1 },
+	/* class      instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.60; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -43,7 +42,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -55,29 +54,11 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]    = { "urxvt", NULL };
-static const char *lockcmd[]    = { "xlock", NULL };
-static const char *wicdcmd[]    = { "wicd-client", "-n", NULL };
-static const char *mutecmd[]    = { "/etc/acpi/volume.sh", "mute", NULL };
-static const char *voldncmd[]   = { "/etc/acpi/volume.sh", "down", NULL };
-static const char *volupcmd[]   = { "/etc/acpi/volume.sh", "up", NULL };
-static const char *micmutecmd[] = { "/etc/acpi/volume.sh", "micmute", NULL };
-static const char *prevcmd[]    = { "cmus-remote", "-r", NULL };
-static const char *playcmd[]    = { "cmus-remote", "-u", NULL };
-static const char *nextcmd[]    = { "cmus-remote", "-n", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-    { 0,                           0x1008ff12, spawn,          {.v = mutecmd } },
-    { 0,                           0x1008ff11, spawn,          {.v = voldncmd } },
-    { 0,                           0x1008ff13, spawn,          {.v = volupcmd } },
-    { 0,                           0x1008ffb2, spawn,          {.v = micmutecmd } },
-    { 0,                            XK_F13,    spawn,          {.v = prevcmd } },
-    { 0,                            XK_F14,    spawn,          {.v = playcmd } },
-    { 0,                            XK_F15,    spawn,          {.v = nextcmd } },
-    { MODKEY,                       XK_z,      spawn,          {.v = lockcmd } },
-    { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wicdcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
