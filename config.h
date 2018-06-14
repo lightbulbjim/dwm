@@ -56,17 +56,18 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]    = { "urxvt", NULL };
-static const char *lockcmd[]    = { "xlock", NULL };
-static const char *wicdcmd[]    = { "wicd-client", "-n", NULL };
-static const char *mutecmd[]    = { "/etc/acpi/volume.sh", "mute", NULL };
-static const char *voldncmd[]   = { "/etc/acpi/volume.sh", "down", NULL };
-static const char *volupcmd[]   = { "/etc/acpi/volume.sh", "up", NULL };
-static const char *micmutecmd[] = { "/etc/acpi/volume.sh", "micmute", NULL };
-static const char *prevcmd[]    = { "cmus-remote", "-r", NULL };
-static const char *playcmd[]    = { "cmus-remote", "-u", NULL };
-static const char *nextcmd[]    = { "cmus-remote", "-n", NULL };
+static const char *dmenucmd[]    = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *termcmd[]     = { "urxvt", NULL };
+static const char *lockcmd[]     = { "xlock", NULL };
+static const char *wicdcmd[]     = { "wicd-client", "-n", NULL };
+static const char *mutecmd[]     = { "/etc/acpi/volume.sh", "mute", NULL };
+static const char *voldncmd[]    = { "/etc/acpi/volume.sh", "down", NULL };
+static const char *volupcmd[]    = { "/etc/acpi/volume.sh", "up", NULL };
+static const char *micmutecmd[]  = { "/etc/acpi/volume.sh", "micmute", NULL };
+static const char *touchpadcmd[] = { "/etc/acpi/touchpad.sh", "toggle", NULL };
+static const char *prevcmd[]     = { "cmus-remote", "-r", NULL };
+static const char *playcmd[]     = { "cmus-remote", "-u", NULL };
+static const char *nextcmd[]     = { "cmus-remote", "-n", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -77,6 +78,7 @@ static Key keys[] = {
     { 0,                            XK_F13,    spawn,          {.v = prevcmd } },
     { 0,                            XK_F14,    spawn,          {.v = playcmd } },
     { 0,                            XK_F15,    spawn,          {.v = nextcmd } },
+    { 0,                            XK_F16,    spawn,          {.v = touchpadcmd } },
     { MODKEY,                       XK_z,      spawn,          {.v = lockcmd } },
     { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wicdcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
